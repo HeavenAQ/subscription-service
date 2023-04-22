@@ -9,7 +9,7 @@ build:
 
 run: build
 	@echo "Starting..."
-	@echo env DSN=${DSN} REDIS=${REDIS} ./${BINARY_NAME} &
+	env DSN=${DSN} REDIS=${REDIS} ./${BINARY_NAME} &
 	@echo "Started!"
 
 clean:
@@ -23,6 +23,7 @@ start: run
 stop:
 	@echo "Stopping"
 	@-pkill -SIGTERM -f ./${BINARY_NAME}
+	@echo "Stopped"
 
 restart: stop start
 

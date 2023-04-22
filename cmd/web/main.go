@@ -29,10 +29,11 @@ func main() {
 		DB:       db,
 		InfoLog:  infoLog,
 		ErrorLog: errorLog,
-		Wait:     &sync.WaitGroup{},
+		Wait:     &wg,
 	}
 
 	// set up mail
 
-	// lisetn for web connections
+	// listen for web connections
+	app.serve()
 }
