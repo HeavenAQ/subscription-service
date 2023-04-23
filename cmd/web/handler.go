@@ -21,5 +21,5 @@ func (app *Config) serve() {
 }
 
 func (app *Config) HomePage(w http.ResponseWriter, r *http.Request) {
-
+	app.render(w, r, "home.page.html", &TemplateData{})
 }
