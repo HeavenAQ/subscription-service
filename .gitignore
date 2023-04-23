@@ -1,2 +1,3 @@
 db-data/redis/*
 db-data/postgres/*
+myapp
