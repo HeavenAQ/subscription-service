@@ -9,7 +9,7 @@ build:
 
 run: build
 	@echo "Starting..."
-	env DSN=${DSN} REDIS=${REDIS} ./${BINARY_NAME} &
+	env DSN=${DSN} REDIS=${REDIS} ./${BINARY_NAME} 
 	@echo "Started!"
 
 clean:
