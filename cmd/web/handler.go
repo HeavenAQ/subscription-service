@@ -23,3 +23,27 @@ func (app *Config) serve() {
 func (app *Config) HomePage(w http.ResponseWriter, r *http.Request) {
 	app.render(w, r, "home.page.gohtml", &TemplateData{})
 }
+
+func (app *Config) LoginPage(w http.ResponseWriter, r *http.Request) {
+	app.render(w, r, "login.page.gohtml", &TemplateData{})
+}
+
+func (app *Config) PostLogin(w http.ResponseWriter, r *http.Request) {
+
+}
+
+func (app *Config) Logout(w http.ResponseWriter, r *http.Request) {
+
+}
+
+func (app *Config) RegisterPage(w http.ResponseWriter, r *http.Request) {
+	app.render(w, r, "register.page.gohtml", &TemplateData{})
+}
+
+func (app *Config) PostRegister(w http.ResponseWriter, r *http.Request) {
+	app.render(w, r, "register.page.gohtml", &TemplateData{})
+}
+
+func (app *Config) ActivateAccount(w http.ResponseWriter, r *http.Request) {
+
+}

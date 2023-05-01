@@ -3,7 +3,9 @@ package main
 import (
 	"log"
 	"os"
+	"os/signal"
 	"sync"
+	"syscall"
 )
 
 const webPort = "80"
@@ -34,6 +36,23 @@ func main() {
 
 	// set up mail
 
+	// gracefully shutdown the application
+	go app.listenForShutdown()
+
 	// listen for web connections
 	app.serve()
+}
+
+func (app *Config) listenForShutdown() {
+	quit := make(chan os.Signal)
+	signal.Notify(quit, syscall.SIGINT, syscall.SIGTERM)
+	<-quit
+	app.shutdown()
+	os.Exit(0)
+}
+
+func (app *Config) shutdown() {
+	app.InfoLog.Println("Cleaning up...")
+	app.Wait.Wait()
+	app.InfoLog.Println("Graceful shutdown complete")
 }
