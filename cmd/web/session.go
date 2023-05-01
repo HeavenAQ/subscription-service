@@ -1,16 +1,21 @@
 package main
 
 import (
+	"encoding/gob"
 	"net/http"
 	"os"
 	"time"
 
+	"github.com/HeavenAQ/subscription-service/data"
 	"github.com/alexedwards/scs/redisstore"
 	"github.com/alexedwards/scs/v2"
 	"github.com/gomodule/redigo/redis"
 )
 
 func initSession() *scs.SessionManager {
+	// Store session
+	gob.Register(data.User{})
+
 	// set up session
 	session := scs.New()
 	// store all session data in redis

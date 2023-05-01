@@ -1,5 +1,5 @@
 BINARY_NAME=myapp
-DSN="host=localhost port=5432 user=postgres password=password dbname=postgres sslmode=disable"
+DSN="host=localhost port=5432 user=postgres password=password dbname=concurrency sslmode=disable"
 REDIS="127.0.0.1:6379"
 
 build:
@@ -9,7 +9,7 @@ build:
 
 run: build
 	@echo "Starting..."
-	env DSN=${DSN} REDIS=${REDIS} ./${BINARY_NAME} 
+	env DSN=${DSN} REDIS=${REDIS} ./${BINARY_NAME} &
 	@echo "Started!"
 
 clean:

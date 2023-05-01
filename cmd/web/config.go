@@ -5,6 +5,7 @@ import (
 	"log"
 	"sync"
 
+	"github.com/HeavenAQ/subscription-service/data"
 	"github.com/alexedwards/scs/v2"
 )
 
@@ -14,4 +15,5 @@ type Config struct {
 	InfoLog  *log.Logger
 	ErrorLog *log.Logger
 	Wait     *sync.WaitGroup
+	Models   data.Models
 }

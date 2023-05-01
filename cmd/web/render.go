@@ -50,6 +50,7 @@ func (app *Config) render(w http.ResponseWriter, r *http.Request, templateName s
 		app.failedToRender(w, err)
 		return
 	}
+	app.InfoLog.Println(http.StatusOK, r.URL)
 }
 
 func (app *Config) AddDefaultData(td *TemplateData, r *http.Request) *TemplateData {
